@@ -16,7 +16,7 @@
     "productCount": 3
   },
   {
-    "isSelectes": true,
+    "isSelectes": false,
     "productCover": "https://dpic.tiankong.com/sp/hz/QJ6942008928.jpg",
     "productName": "js",
     "productInfo": "颜色：node",
