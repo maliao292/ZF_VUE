@@ -1,0 +1,34 @@
+[
+  {
+    "isSelectes": true,
+    "productCover": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1550055437846&di=a906bda683f1f4ff847ca6451bed0fea&imgtype=0&src=http%3A%2F%2Fpic.qiantucdn.com%2F58pic%2F21%2F93%2F90%2F90Y58PICnCD_1024.jpg",
+    "productName": "深入浅出node",
+    "productInfo": "颜色：node",
+    "productPrice": 57.8,
+    "productCount": 3
+  },
+  {
+    "isSelectes": true,
+    "productCover": "http://pic42.photophoto.cn/20170305/1155117160017041_b.jpg",
+    "productName": "web",
+    "productInfo": "颜色：node",
+    "productPrice": 60,
+    "productCount": 3
+  },
+  {
+    "isSelectes": true,
+    "productCover": "https://dpic.tiankong.com/sp/hz/QJ6942008928.jpg",
+    "productName": "js",
+    "productInfo": "颜色：node",
+    "productPrice": 21,
+    "productCount": 3
+  },
+  {
+    "isSelectes": true,
+    "productCover": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1550055483513&di=566a59f0b1032fee857d9d6090b7fc10&imgtype=0&src=http%3A%2F%2Fs6.sinaimg.cn%2Fmiddle%2F7a45e1afhb8ad75dd3745%26690",
+    "productName": "深入浅出node",
+    "productInfo": "颜色：node",
+    "productPrice": 57.8,
+    "productCount": 3
+  }
+]

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div class="container">
+        <div class="row">
+            <table class="table table-bordered col-sm-10">
+                <caption>图书购物车</caption>
+                <thead>
+                <tr>
+                    <th><input type="checkbox">全选</th>
+                    <th>商品</th>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="(val,ind) in products">
+                    <td><input type="checkbox" v-model="checker" :value="ind"></td>
+                    <td><img width="140" :src="val.productCover" class="img-thumbnail"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/axios/dist/axios.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        created() {
+            this.getData();
+        },
+        data: {
+            products: [],
+            checker:[]
+        },
+        methods: {
+            getData() { // 获取数据
+                axios.get('./carts.json').then(res => {
+                    this.products = res.data;
+                }, err => {
+                    console.log(err);
+                });
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="val" @keyup.enter="add">
+    <ul>
+        <li v-for="(a,ind) in arr">{{a}} <button @click="del(ind)">删除</button></li>
+    </ul>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            arr: [],
+            val: '',
+        },
+        methods: {
+            del(ind){
+                this.arr.splice(ind,1)
+            },
+            add(e) {
+                    this.arr.unshift(this.val);
+                    this.val = '';
+            }
+        }
+    })
+</script>
+</body>
+</html>
