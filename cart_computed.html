@@ -63,7 +63,7 @@
         computed:{
             checkAll: {
                 get(){
-                    return
+                    return this.products.every(item => item.isSelectes)
                 },
                 set(val){
                     this.products.forEach(item => item.isSelectes = val)
