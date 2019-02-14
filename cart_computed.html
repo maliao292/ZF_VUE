@@ -13,7 +13,7 @@
                 <caption class="text-warning">图书购物车</caption>
                 <thead>
                 <tr>
-                    <th><input type="checkbox" v-model="checkAll" @change="change">全选</th>
+                    <th><input type="checkbox" v-model="checkAll">全选</th>
                     <th>商品</th>
                     <th>单价</th>
                     <th>数量</th>
@@ -23,7 +23,7 @@
                 </thead>
                 <tbody>
                 <tr v-for="(val,ind) in products">
-                    <td><input type="checkbox" v-model="val.isSelectes" :value="ind" @change="checkOne"></td>
+                    <td><input type="checkbox" v-model="val.isSelectes" :value="ind"></td>
                     <td><img width="140" :src="val.productCover" class="img-thumbnail"><span
                             v-text="val.productName"></span></td>
                     <td v-text="val.productPrice"></td>
@@ -38,8 +38,8 @@
                         <button @click="del(val)" class="btn btn-danger">刪除</button>
                     </td>
                 </tr>
-                <tr>
-                    <td>总价：{{sum() | toFixed(2)}}</td>
+                <tr >
+                    <td colspan="6">总价：{{sum | toFixed(2)}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -57,27 +57,28 @@
             this.getData();
         },
         data: {
-            checkAll: false,
             products: [],
             checker: []
         },
-        methods: {
-            sum(){
-
-                return this.products.reduce((prev,next)=>{
-                    if(!next.isSelectes) return prev; // 如果当前没被选中 就不加当前这一项
-                    return prev+next.productPrice*next.productCount},0);
+        computed:{
+            checkAll: {
+                get(){
+                    return
+                },
+                set(val){
+                    this.products.forEach(item => item.isSelectes = val)
+                }
             },
-            checkOne() {
-                this.checkAll = this.products.every(item => item.isSelectes)
-            },
-            change() {
-                this.products.forEach(item => item.isSelectes = this.checkAll)
-            },
+            sum(){  // 默认get（） 可写成  函数方式
+                    return this.products.reduce((prev,next)=>{
+                        if(!next.isSelectes) return prev; // 如果当前没被选中 就不加当前这一项
+                        return prev+next.productPrice*next.productCount},0);
+                }
+        },
+        methods:{
             getData() { // 获取数据
                 axios.get('./carts.json').then(res => {
                     this.products = res.data;
-                    this.checkOne();
                 }, err => {
                     console.log(err);
                 });

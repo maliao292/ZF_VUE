@@ -8,7 +8,7 @@
     "productCount": 3
   },
   {
-    "isSelectes": true,
+    "isSelectes": false,
     "productCover": "http://pic42.photophoto.cn/20170305/1155117160017041_b.jpg",
     "productName": "web",
     "productInfo": "颜色：node",
@@ -16,7 +16,7 @@
     "productCount": 3
   },
   {
-    "isSelectes": false,
+    "isSelectes": true,
     "productCover": "https://dpic.tiankong.com/sp/hz/QJ6942008928.jpg",
     "productName": "js",
     "productInfo": "颜色：node",
