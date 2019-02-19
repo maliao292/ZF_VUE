@@ -33,35 +33,20 @@ vm.$set(vm.a,"school",1) // 添加未定义属性
   #### 或者 :class="[class1,class2,'z']"
   #### 再或者 :class="{class:布尔，class:布尔}[class1,class2,'z']"
   #### 再或者 :class="[class1,class2,{class:布尔}]"
-  
-> ## 指令
- new Vue({
-    directives:{
-        color(el){ // el 当前dom
-        }
-    },
-    data:{
-        flag:"red"
-    }
- })
- 
-  <button v-color="flag"></button>
 
- ## watch 
- ### 只监控一层
- ### 深度监控 以下写法
- ```$xslt
-watch:{
-    todo:{// 此为对象  通常为函数
-        handler(){  
-            .....
-        },deep:true
-    } 
-}
-```
- 监控 url hash 变化
-  事件 ：hashchange 
-  window.addEventListener("hashchange",function(){})
+  ## 绑定样式
+  ###  :style="{color:'red'}"
+  ### data:{style:backgroundColor:"#333"}  :style="[style,{color:'red'}]"
+
+
+  ##
+
+
+
+
+ 
+ 
+ 
  
  
  
