@@ -33,7 +33,17 @@ vm.$set(vm.a,"school",1) // 添加未定义属性
   #### 或者 :class="[class1,class2,'z']"
   #### 再或者 :class="{class:布尔，class:布尔}[class1,class2,'z']"
   #### 再或者 :class="[class1,class2,{class:布尔}]"
-  
+
+  ## 绑定样式
+  ###  :style="{color:'red'}"
+  ### data:{style:backgroundColor:"#333"}  :style="[style,{color:'red'}]"
+
+
+  ##
+
+
+
+
  
  
  

@@ -1,0 +1,26 @@
+{
+  "name": "zf_vue",
+  "version": "1.0.0",
+  "description": "vm.$set(vm.a,\"school\",1) // 添加未定义属性",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^3.3.7",
+    "vue": "^2.6.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maliao292/zf_vue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maliao292/zf_vue/issues"
+  },
+  "homepage": "https://github.com/maliao292/zf_vue#readme"
+}
