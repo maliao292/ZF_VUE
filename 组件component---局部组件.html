@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+    <handsome1></handsome1>
+    <handsome2/>
+<!-- bug-->
+    <!--
+    <handsome2/>
+    <handsome1></handsome1>
+    只有 一个组件显示
+    -->
+
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/axios/dist/axios.js"></script>
+<script>
+    // 1、创建组件 2、注册这个组件 3、使用（<handsome></handsome>、<handsome />）
+
+    // 组件相互独立 不能直接跨作用域  实例也是一个组件
+    // 如果组件共用数据 会导致数据 同事更新
+    // 组件可以嵌套
+    // 1、
+    let handsome1 = {template:"<div>组件一</div>"};
+    let handsome2 = {template:"<div>组件二</div>"};
+    var vm = new Vue({
+        el: "#app",
+        components:{
+            handsome1:handsome1, //2、由于 名称一样 可写成  ： handsome
+            handsome2
+        },
+        data: {
+            a:1 // 子组件不能使用
+        }
+    })
+</script>
+</body>
+</html>

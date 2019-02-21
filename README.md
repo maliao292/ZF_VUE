@@ -39,9 +39,21 @@ vm.$set(vm.a,"school",1) // 添加未定义属性
   ### data:{style:backgroundColor:"#333"}  :style="[style,{color:'red'}]"
 
 
-  ##
+  # 获取元素
+    标签中：<p ref="myp"><p>  定义 ref 属性
+    实例中: this.$refs
 
-
+# 实例的属性
+ this.$data  vm 上的数据
+ this.$watch  监控
+ this.$el     当前el 元素
+ this.$set 后加的属性，实现响应式变化
+ this.$options  vm 上的所有属性
+ this.$nextTick(）
+ this.$refs.xxx
+  
+this.$nextTick(function(){  // 异步方法
+})
 
 
  

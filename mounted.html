@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <p ref="myp">HELLO</p>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/axios/dist/axios.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {},
+        mounted() {
+            // 如果 dom 元素不是通过 v-for 循环出来的 只能获取一个
+            // v-for 取出的是数组
+
+            console.log(this.$refs.myp);
+
+        }
+    })
+</script>
+</body>
+</html>

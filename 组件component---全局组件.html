@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <my-handsome></my-handsome>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/axios/dist/axios.js"></script>
+<script>
+    /* 分类 :
+    *  页面级组件：1、一个页面是一个组件
+    *              2、将可复用的部分抽离出来 基础组件
+    *
+    *
+    *
+    * */
+    Vue.component("my-handsome",{
+        template:"<div>{{msg}}</div>",
+        data(){ // 组件中的数据必须是函数类型
+            return {
+                msg:"...."
+            }
+        }
+    });
+    var vm = new Vue({
+        el: "#app",
+        data: {}
+    })
+</script>
+</body>
+</html>
