@@ -15,14 +15,16 @@
         el: "#app",
         /*
         * 钩子函数
-        *          beforeCreate created
-        * 挂载之前 beforeMount mount
-        *
+        * 创建     beforeCreate created
+        * 挂载     beforeMount mounted
+        * 更新     beforeUpdate updated
+        * 销毁     beforeDestroy destroed
         *
         * */
         data: {
         },
-
+        beforeCreate(){},  //不常用
+        template:"<h1>HELLO</h1>"
     })
 </script>
 </body>
