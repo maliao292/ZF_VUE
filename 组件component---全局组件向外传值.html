@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Title</title>
+</head>
+<body>
+<button v-on:click="$emit('enlarge-text')">
+    Enlarge text
+</button>
+<div id="app">
+    <div :style="{ fontSize: postFontSize + 'em' }">
+        <blog-post :post="posts" v-on:enlarge-text="method"></blog-post>
+    </div>
+
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/axios/dist/axios.js"></script>
+<script>
+    Vue.component('blog-post', {
+        props: ['post'],
+        template: `
+                <div class="blog-post">
+                  <h3>{{ post.title }}</h3>
+                  <button v-on:click="$emit('enlarge-text')">
+  Enlarge text
+</button>
+                </div>
+  `
+    })
+    new Vue({
+        el: '#app',
+        data: {
+            posts: {id: 1, title: 'My journey with Vue'},
+            postFontSize: 1
+        },
+        methods:{
+            method(){
+                
+            }
+        }
+    })
+</script>
+</body>
+</html>
