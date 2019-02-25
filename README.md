@@ -46,7 +46,7 @@ vm.$set(vm.a,"school",1) // 添加未定义属性
 # 实例的属性
  this.$data  vm 上的数据
  this.$watch  监控
- this.$el     当前el 元素
+ this.$el     当前el 元素 
  this.$set 后加的属性，实现响应式变化
  this.$options  vm 上的所有属性
  this.$nextTick(）
@@ -56,11 +56,31 @@ this.$nextTick(function(){  // 异步方法
 })
 
 
-
-# 路由
+# 子组件向父组件传值
+## 子组件  
+    元素内：
+    <div v-on:click="$emit('子方法名'，传值)"><div>
+## 父组件
+    <组件 v-on:子方法名="父方法"><组件>
+    
+    methods:{
+        父方法(传值){
+            // 在此接收‘传值’
+        }
+    }
 
  
  
+ # router 
+ ## 路由列表  var routes = [{path:"/home",component:home}];
+ ## 声明路由实例 var router = new VueRouter({ routes })
+ ## vue 实例引入路由  new Vue({el:"#app", router })
+ ## #pp 内使用 <router-view></router-view>
+ ### <router-link to="/home" tag="div"></router-link>  tag 设置router-link 标签为 div , 有自带class 
+ 
+ ## this.$router.push("/list"); // js 路由跳转
+ ## this.$router.replace("/list"); // js 路由替换 替换原来路由 
+ ## this.$router.go(-1); // js 返回
  
  
  

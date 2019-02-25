@@ -6,38 +6,37 @@
     <title>Title</title>
 </head>
 <body>
-<button v-on:click="$emit('enlarge-text')">
-    Enlarge text
-</button>
 <div id="app">
-    <div :style="{ fontSize: postFontSize + 'em' }">
-        <blog-post :post="posts" v-on:enlarge-text="method"></blog-post>
-    </div>
-
+    <div>{{title}}</div>
+    <blog-post @toparent="getdata"></blog-post>
 </div>
 <script src="node_modules/vue/dist/vue.js"></script>
 <script src="node_modules/axios/dist/axios.js"></script>
 <script>
-    Vue.component('blog-post', {
-        props: ['post'],
-        template: `
-                <div class="blog-post">
-                  <h3>{{ post.title }}</h3>
-                  <button v-on:click="$emit('enlarge-text')">
-  Enlarge text
-</button>
-                </div>
-  `
-    })
-    new Vue({
-        el: '#app',
-        data: {
-            posts: {id: 1, title: 'My journey with Vue'},
-            postFontSize: 1
+    Vue.component("blog-post", {
+        template: "<input v-on:input='$emit(\"toparent\", $event.target.value)'>",
+        data() { // 组件中的数据必须是函数类型
+            return {
+                msg: {
+                    msg: "子组件奉上",
+                    id:3
+                }
+            }
         },
-        methods:{
-            method(){
-                
+        methods: {
+            toparent() {
+            }
+        }
+    });
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            title: ""
+        },
+        methods: {
+            getdata(e) {
+                console.log(e)
+                this.title = e;
             }
         }
     })

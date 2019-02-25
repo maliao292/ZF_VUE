@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <router-link to="/home" tag="span">home</router-link>
+    <router-link to="/detail" tag="span">list</router-link>
+    <router-view></router-view>
+</div>
+<template id="detail">
+    <div>
+        <span>详情</span>
+        <div>
+            <router-link to="/detail/profile">个人中心</router-link>
+            <router-link to="/detail/about">关于我们</router-link>
+        </div>
+        <router-view></router-vi ew>
+    </div>
+</template>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/vue-router/dist/vue-router.js"></script>
+<script>
+    let home = {
+        template: "<div><span>home</span><button @click='tolist'>home to list</button></div>",
+        methods: {
+            tolist() {
+                this.$router.push("/list");
+            }
+        }
+    };
+    let detail = {template: "#detail"};
+    let profile = {template: "<div><span>profile</span></div>"};
+    let about = {template: "<div><span>关于</span></div>"};
+    let list = {
+        template: "<div><span>list</span><button @click='back'>back</button></div>",
+        methods: {
+            back() {
+                this.$router.go(-1)
+            }
+        }
+
+    };
+    let routes = [
+        { path: "", component: home  }, // 设置默认路由
+        { path: "/home", component: home },
+        {
+            path: "/detail",
+            component: detail,
+            children: [{
+                path: "",
+                component: profile
+            },{
+                path: "profile",
+                component: profile
+            },{
+                path: "about",
+                component: about,
+            }]
+        },
+        // {path: "*", component: list} ,  // 匹配不到
+        {path: "*", redirect: "/detail"}  // 匹配不到  重定向
+
+    ];
+    let router = new VueRouter({
+        routes,
+        linkActiveClass: "active"
+    });
+    let vm = new Vue({
+        el: "#app",
+        router // 每个组件都有一个名字叫$router 的属性(放的都是方法)  还有一个 叫$route（存的都是属性 ）
+    })
+</script>
+</body>
+</html>

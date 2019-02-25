@@ -6,7 +6,9 @@
 </head>
 <body>
 <div id="app">
-
+    <router-link to="/list" tag="span" class="a">list</router-link>
+    <router-link to="/home" tag="span" class="a">home</router-link>
+    <router-view></router-view>
 </div>
 <script src="node_modules/vue/dist/vue.js"></script>
 <script src="node_modules/vue-router/dist/vue-router.js"></script>
@@ -14,18 +16,19 @@
     let home = {template: "<div>首页</div>"};
     let list = {template: "<h2>列表页</h2>"};
 
-    let routers = [  // 路由映射表
+    let routes = [  // 路由映射表
         {path: "/home", component: home},
-        {path:"/list",component:list}
+        {path: "/list", component: list}
     ];
     let router = new VueRouter({
-        routers
+        routes,
+        linkActiveClass:"active", //重置激活时的class, 原：router-link-active
     });
 
     let vm = new Vue({
-        el: "#app",
+        // el: "#app",
         router
-    });
+    }).$mount('#app');
 </script>
 </body>
 </html>
