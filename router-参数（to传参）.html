@@ -8,7 +8,7 @@
 <div id="app">
     <!--<router-link :to="{path:/article,params:{a:1,c:b}}">1 </router-link>-->
     <!--如果用对象作为to的属性，并且使用了参数 ， 必须给路由起个名字 ，通过名字跳转-->
-    <router-link :to="{name:/pro,params:{a:1,c:b}}">1 </router-link>
+    <router-link :to="{name:'pro',params:{a:1,c:'b'}}">1 </router-link>
     <router-link to="/article/2">2 </router-link>
     <router-link to="/article/3">3 </router-link>
     <router-view></router-view>

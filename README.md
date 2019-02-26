@@ -82,11 +82,47 @@ this.$nextTick(function(){  // 异步方法
  ## this.$router.replace("/list"); // js 路由替换 替换原来路由 
  ## this.$router.go(-1); // js 返回
  
+ # 模块
+ ## 导出
+ - export let a = 1;   // 逐个导出
+ - export { a,b};      // 批量导出
+ - export default {a:1}; // 默认导出 配合 import xxx from "./b.js"; xxx 代表 前面导出的默认结果
  
+ # webpack 使用
+ ```$xslt
+ npm init -y
+npm install webpack --save-dev;
+```
+> 安装webpack 或者 less 最好不要安装全局的，否则可能导致版本差异
  
+ ## babel 转义 es6=>es5
+ ```$xslt
+npm install babel-core -- save-dev
+npm install babel-loader --save-dev
+```
+ ## babel-preset-es2015
+ - 让翻译官拥有 解析es6语法的功能(ES6 转 ES5)
+ ```$xslt
+npm install babel-preset-es2015 --save-dev
+```
  
+ # babel-preset-stage-0  (还有 1、2、3、4)
+ - 解析es7 语法
+ ```$xslt
+npm install babel-preset-stage-0 --save-dev
+```
  
- 
+ # 解析样式 CSS文件
+ ```$xslt
+npm install css-loader style-loader --save-dev
+```
+> style-loader 把样式解析到<style></style>标签内
+
+
+## less,sass,stylus(css预处理)
+- less-loader less  css-loader style-loader
+- sass-loader ..
+- stylus-loader ..
  
  
  
