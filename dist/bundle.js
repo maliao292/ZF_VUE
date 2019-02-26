@@ -224,7 +224,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(5);
+var	fixUrls = __webpack_require__(7);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -571,9 +571,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 __webpack_require__(3);
 
-__webpack_require__(6);
+__webpack_require__(8);
 
-var str = __webpack_require__(8);
+var str = __webpack_require__(10);
 
 console.log(str);
 
@@ -638,13 +638,49 @@ if(false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
+// Imports
+var urlEscape = __webpack_require__(5);
+var ___CSS_LOADER_URL___0___ = urlEscape(__webpack_require__(6));
+
 // Module
-exports.push([module.i, "body{\r\n    background: aqua;\r\n}", ""]);
+exports.push([module.i, "body{\r\n    background: url(" + ___CSS_LOADER_URL___0___ + ");\r\n}\r\n", ""]);
 
 
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function escape(url, needQuotes) {
+  if (typeof url !== 'string') {
+    return url;
+  } // If url is already wrapped in quotes, remove them
+
+
+  if (/^['"].*['"]$/.test(url)) {
+    url = url.slice(1, -1);
+  } // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+
+
+  if (/["'() \t\n]/.test(url) || needQuotes) {
+    return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"';
+  }
+
+  return url;
+};
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "2f79564fa173f2025112cd8d7ed8ec13.jpg";
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports) {
 
 
@@ -739,11 +775,11 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(7);
+var content = __webpack_require__(9);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -789,7 +825,7 @@ if(false) {
 }
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -799,7 +835,7 @@ exports.push([module.i, "html body:after {\n  content: '这是LESS';\n  color: #
 
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

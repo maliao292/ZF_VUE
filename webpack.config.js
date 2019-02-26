@@ -14,8 +14,11 @@ module.exports = {
         rules: [
             {test:/\.js$/,use:"babel-loader",exclude:/node_modules/},
             // use 时 从右往左写 <<----------
-            {test:/\.css$/,use:["style-loader","css-loader"],exclude:/node_modules/},
-            {test:/\.less$/,use:["style-loader","css-loader","less-loader"],exclude:/node_modules/},
+            {test:/\.css$/,use:["style-loader","css-loader"]},
+            {test:/\.less$/,use:["style-loader","css-loader","less-loader"]},
+            // 转换base64 只在8192字节（8k *64）内，其他情况输出图片
+            {test:/\.(jpg|png|gif|icon)$/,use:"url-loader?limit=8192"},
+            {test:/\.(eot|woff|svg|woff2|wtf)$/,use:"url-loader"},
         ]
     }
 };

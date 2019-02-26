@@ -87,7 +87,7 @@ this.$nextTick(function(){  // 异步方法
  - export let a = 1;   // 逐个导出
  - export { a,b};      // 批量导出
  - export default {a:1}; // 默认导出 配合 import xxx from "./b.js"; xxx 代表 前面导出的默认结果
- 
+
  # webpack 使用
  ```$xslt
  npm init -y
@@ -105,28 +105,35 @@ npm install babel-loader --save-dev
  ```$xslt
 npm install babel-preset-es2015 --save-dev
 ```
- 
+
  # babel-preset-stage-0  (还有 1、2、3、4)
  - 解析es7 语法
  ```$xslt
 npm install babel-preset-stage-0 --save-dev
 ```
- 
+
  # 解析样式 CSS文件
  ```$xslt
 npm install css-loader style-loader --save-dev
 ```
 > style-loader 把样式解析到<style></style>标签内
 
-
 ## less,sass,stylus(css预处理)
 - less-loader less  css-loader style-loader
 - sass-loader ..
 - stylus-loader ..
+
+# 解析图片
+- file-loader url-loader(依赖file-loader,自动引入)
+```
+npm install file-loader url-loader --save-dev
+```
+ > 在JS中引入图片需要import,或者写一个 线上 路径（http://1.jpg）
  
- 
- 
- 
+ import page from "./2.jpg"
+ let img = new Image();
+ img.src = page;
+ document.body.appendChild(img);
  
  
  
