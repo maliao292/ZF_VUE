@@ -136,9 +136,20 @@ npm install file-loader url-loader --save-dev
  document.body.appendChild(img);
  
  
+ # 解析HTML插件 (loader 解析模块的)
+ - 作用 是以我们自己的html 为模板将打包后的结果，自动引入到html中产出到dist 目录下
+```
+npm install html-webpack-plugin --save-dev
+```
  
- 
- 
+ ## webpack-dev-server
+ - 这里面内置服务，可以帮我们启动一个端口号，当页面更新时可以自动打包（在内存中打包，不产生实体文件），代码有变化就重新执行
+ ```
+    npm install webpack-dev-server --save-dev
+```
+ # 识别Vue 文件 
+ - vue-loader   解析 .vue文件的，会自动调用 vue-template-compiler
+ - vue-template-compiler  用来解析vue模板
  
  
  
