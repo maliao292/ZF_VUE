@@ -150,10 +150,14 @@ npm install html-webpack-plugin --save-dev
  # 识别Vue 文件 
  - vue-loader   解析 .vue文件的，会自动调用 vue-template-compiler
  - vue-template-compiler  用来解析vue模板
- 
- 
- 
- 
+> 两者版本 需要一致！！！  
+
+ # 自动打开浏览器 插件
+ ```
+npm i open-browser-webpack-plugin --save
+```
+ - var OpenBrowserPlugin = require('open-browser-webpack-plugin')
+ - new OpenBrowserPlugin({ url: 'http://localhost:8080' })
  
  
  

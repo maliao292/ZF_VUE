@@ -2,6 +2,7 @@
 let path = require('path');// 专门处理路径的
 var pather = path.resolve('./dist');
 let HtmlWebpackPlugin = require('html-webpack-plugin'); // 引入插件
+let OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
     entry: "./src/main.js", // 打包入口文件，webpack会自动查找 相关的依赖进行打包
@@ -27,6 +28,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template:'./src/index.html', // 需要添加js 的文件目录
             filename:'index.html',   // 生成的文件 名
-        })
+        }),
+        new OpenBrowserPlugin({ url: 'http://localhost:8080' })
     ]
 };
