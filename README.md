@@ -1,3 +1,14 @@
+# 新建 vue 项目
+- 全局安装 vue-cli
+> npm install -global vue-cli
+- 创建一个基于 webpack 的模板的新项目
+> vue init webpack my-project
+
+> npm install 
+
+> npm run dev
+
+
 # zf_vue
 ####珠峰——vue
 
