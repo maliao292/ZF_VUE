@@ -1,0 +1,30 @@
+[
+  {
+    "bookCover": "https://img14.360buyimg.com/n1/s200x200_jfs/t25153/272/161707410/74236/550a8065/5b67b9f8Ncfaa89cb.jpg"
+    "bookName":"项目开发实战",
+    "bookInfo":"项目开发实战 计算机与互联网",
+    "bookPrice":62.3,
+    "bookId":1
+  },
+  {
+    "bookCover": "https://img14.360buyimg.com/n1/s200x200_jfs/t9508/97/2285719018/62961/99c5b1b7/59f299b4Nc9e78adb.jpg",
+    "bookName":"vue.js实战",
+    "bookInfo":"尤雨溪推荐 随书附赠示例代码下载资源",
+    "bookPrice":64,
+    "bookId":2
+  },
+  {
+    "bookCover": "https://img14.360buyimg.com/n1/s200x200_jfs/t3049/211/1135504925/129375/cc072102/57c6862aN329b23fd.jpg",
+    "bookName":"vue.js实战权威指南",
+    "bookInfo":"与React|Angular三分天下",
+    "bookPrice":99,
+    "bookId":3
+  },
+  {
+    "bookCover": "https://img11.360buyimg.com/n1/s200x200_jfs/t1/19709/14/2822/206853/5c21adb6E7c9bb79e/5b840bc23c3ed2dc.jpg",
+    "bookName":"Vue.js 前端设计",
+    "bookInfo":"通过6个实战项目循序渐进地掌握完整的Vue开发技能",
+    "bookPrice":55,
+    "bookId":4
+  }]
+
