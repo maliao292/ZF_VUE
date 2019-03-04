@@ -3,7 +3,14 @@ var http = require('http'),
   url = require('url');
 // 获取轮播图接口 /sliders
 let sliders = require('./sliders.js');
-http.createServer((req,res) => {
+
+function read(cd) {
+  fs.readFile('./book.json','utf8',function (err,data) {
+
+  });
+}
+
+http.createServer((req, res) => {
 
   let {pathname, query} = url.parse(req.url);
   if (pathname === '/sliders') {
@@ -12,9 +19,9 @@ http.createServer((req,res) => {
     res.setHeader('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
     res.setHeader('X-Powered-By', '3.2.1');
     if (req.method == 'OPTIONS') {
-     return res.end();
+      return res.end();
     }
-    res.setHeader('Content-type','application/json;chatset=utf-8');
+    res.setHeader('Content-type', 'application/json;chatset=utf-8');
     res.end(JSON.stringify(sliders));
   }
   if (pathname === '/sliders') {
