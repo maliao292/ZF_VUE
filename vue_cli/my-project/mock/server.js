@@ -6,7 +6,6 @@ let sliders = require('./sliders.js');
 
 function read(cd) {
   fs.readFile('./book.json','utf8',function (err,data) {
-
   });
 }
 
