@@ -11,7 +11,6 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
-    { path: '', component: Home},
     { path: '/home', component: Home},
     {
       path: '/list', component: List, children: [
@@ -20,5 +19,6 @@ export default new Router({
     },
     { path: '/collect', component: Collect},
     { path: '/add', component: Add},
+    { path: '*', redirect: '/home'}
   ]
 })

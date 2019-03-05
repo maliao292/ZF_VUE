@@ -37,6 +37,7 @@
     padding: 15px 0;
     background: #fff;
     z-index: 10;
+    border-top: 1px solid #ccc;
     div{
       cursor: pointer;
     }

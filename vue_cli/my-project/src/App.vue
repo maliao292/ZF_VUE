@@ -8,7 +8,7 @@
 
 <script>
   import Tab from './base/Tab';
-
+  import '../node_modules/bootstrap/dist/css/bootstrap.css'
   export default {
     name: 'App',
     components: {Tab},
@@ -31,8 +31,14 @@
     appearance: none;
   }
 .content{
-  padding: 40px 0 50px;
+  padding: 40px 0 75px;
   width: 100%;
   overflow: auto;
 }
+  .fr{
+    float: right;
+  }
+  .fl{
+    float: left;
+  }
 </style>
