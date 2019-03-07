@@ -1,6 +1,6 @@
 import axios from 'axios';
 // 增加默认的请求的 url；
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'http://192.168.137.1:3000';
 axios.interceptors.response.use((res) => { // 统一拦截器 在这里同一拦截结果，把结果处理成res.data
   return res.data;
 });
@@ -16,3 +16,7 @@ export let getHotBook = () => {
 export let getBooks = () => axios.get("/book");
 // 删除某一部
 export let removeBook = (id) => axios.delete(`/book?id=${id}`);
+// 获取详情
+export let findOneBook = (id) => axios.get(`/book?id=${id}`);
+// 修改图书
+export let updataBook = (id,data ) => axios.put(`/book?id=${id}`,data);

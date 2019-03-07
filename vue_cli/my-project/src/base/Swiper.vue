@@ -17,6 +17,7 @@
         swiperOption: {
           // direction: 'vertical',
           autoplay: 3500,
+          loop:true,
           setWrapperSize: true,
           pagination: '.swiper-pagination',
           paginationClickable: true,

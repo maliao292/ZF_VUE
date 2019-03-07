@@ -42,9 +42,13 @@ http.createServer((req, res) => {
     let id = parseInt(query.id);
     switch (req.method) {
       case "GET":
-        if(id){  // 查询一个
-
-        }else{ // 没ID 获取所有
+        if (id) {  // 查询一个
+          read(function (books) {
+            var secbooks = books.filter(item => item.bookId == id);
+            if (!secbooks) secbooks = {}
+            res.end(JSON.stringify(secbooks[0]))
+          });
+        } else { // 没ID 获取所有
           read(function (books) {
             let hot = books.reverse();
             res.end(JSON.stringify(hot))
@@ -54,11 +58,41 @@ http.createServer((req, res) => {
       case "POST":
         break;
       case "PUT":
+        if (id) {
+          let str = '';
+          req.on('data',(chunk)=>{
+            str += chunk;
+          });
+          req.on('end',()=>{
+            let book = JSON.parse(str);
+            read(function (books) {
+              books = books.map(item=>{
+                if(item.bookId == id){
+                  return book;
+                }
+                return item
+              })
+              fs.writeFileSync('./book.json', JSON.stringify(books), "utf-8");
+              var resule = {
+                code: 0,
+                msg: "修改成功",
+              };
+              res.setHeader('Content-type', 'application/json;chatset=utf-8');
+              res.end(JSON.stringify(resule));
+            })
+          })
+        }
         break;
       case "DELETE":
-        read(function(books){
-          books = books.filter(item=>item.bookId !== id );
-          console.log(books)
+        read(function (books) {
+          books = books.filter(item => item.bookId !== id);
+          fs.writeFileSync('./book.json', JSON.stringify(books), "utf-8");
+          var resule = {
+            code: 0,
+            msg: "删除成功",
+          };
+          res.end(JSON.stringify(resule));
+
         })
         break;
     }

@@ -1,23 +1,24 @@
 <template>
   <div class="content">
-    <Mheader :isshow="true">列表</Mheader>
+    <Mheader :isshow="false">列表</Mheader>
     <ul class="hotbook">
-      <li v-for="(book,ind) in books" :key="ind">
+      <router-link tag="li" v-for="(book,ind) in books" :key="ind" :to="{name:'detail',query:{bid:book.bookId}}">
         <img :src="book.bookCover" alt="">
         <div>
           <h4 v-text="book.bookName"></h4>
-          <p>{{book.bookInfo}}</p>
+          <p>{{book.bookInfo}}+{{book.bookId}}</p>
           <b>{{book.bookPrice}}</b>
-          <button @click="remove(book.bookId)" class="btn btn-danger fr">删除</button>
+          <button @click.stop="remove(book.bookId)" class="btn btn-danger fr">删除</button>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
 
 <script>
   import Mheader from '../base/Mheader';
-  import {getBooks,removeBook} from "../api";
+  import {getBooks, removeBook} from "../api";
+
   export default {
     name: "home",
     created() {
@@ -29,8 +30,11 @@
       }
     },
     methods: {
-      async remove(id){
+      async remove(id) {
         await removeBook(id);
+        this.books = this.books.filter(function (item) {
+          return item.bookId !== id;
+        })
       },
       async getData() {
         this.books = await getBooks();
@@ -75,7 +79,8 @@
     line-height: 25px;
     width: 50px;
   }
-  .hotbook li>div{
+
+  .hotbook li > div {
     width: 100%;
   }
 </style>

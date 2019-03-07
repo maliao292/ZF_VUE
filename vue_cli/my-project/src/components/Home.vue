@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Mheader :isshow="true">首页</Mheader>
+    <Mheader :isshow="false">首页</Mheader>
     <div class="content">
       <Swiper :swiperSlides = 'slides'></Swiper>
       <ul class="hotbook">
