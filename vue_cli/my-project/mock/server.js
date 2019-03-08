@@ -25,7 +25,12 @@ http.createServer((req, res) => {
     return res.end();
   }
   let {pathname, query} = url.parse(req.url, true);
+  if(pathname === '/page'){
+    let offset = parseInt(query.offset) || 0 ;
+    console.log(offset);
 
+    return;
+  }
   if (pathname === '/sliders') {
 
     res.setHeader('Content-type', 'application/json;chatset=utf-8');

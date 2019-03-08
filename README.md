@@ -171,6 +171,9 @@ npm i open-browser-webpack-plugin --save
  - new OpenBrowserPlugin({ url: 'http://localhost:8080' })
  
  
+ ## 路由元信息
+- {path: '/home', component: Home, meta: -{keepAlive: true}},
+  -   // 取值 this.$route.meta.keepAlive
  
  
  

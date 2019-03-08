@@ -11,11 +11,12 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
-    { path: '/home', component: Home},
-    { path: '/list', component: List,},
-    { path: '/collect', component: Collect},
-    { path: '/add', component: Add},
-    { path: '/detail', component: Detail,name:'detail'},
-    { path: '*', redirect: '/home'}
+    {path: '/home', component: Home, meta: {keepAlive: true}},
+    // 取值 this.$route.meta.keepAlive
+    {path: '/list', component: List,},
+    {path: '/collect', component: Collect},
+    {path: '/add', component: Add, meta: {keepAlive: true}},
+    {path: '/detail', component: Detail, name: 'detail'},
+    {path: '*', redirect: '/home'}
   ]
 })
