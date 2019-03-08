@@ -20,3 +20,6 @@ export let removeBook = (id) => axios.delete(`/book?id=${id}`);
 export let findOneBook = (id) => axios.get(`/book?id=${id}`);
 // 修改图书
 export let updataBook = (id,data ) => axios.put(`/book?id=${id}`,data);
+
+// 新增 图书
+export let addBook = (data ) => axios.post(`/book`,data);

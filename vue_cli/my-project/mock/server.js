@@ -56,6 +56,24 @@ http.createServer((req, res) => {
         }
         break;
       case "POST":
+        let str = '';
+        req.on('data',(chunk)=>{
+          str += chunk;
+        })
+        req.on('end',()=>{
+          let book = JSON.parse(str);
+          read(function (books) {
+            book.bookId = books.length?books[books.length-1].bookId+1:"1";
+            books.push(book);
+            fs.writeFileSync('./book.json', JSON.stringify(books), "utf-8");
+            var resule = {
+              code: 0,
+              msg: "修改成功",
+            };
+            res.setHeader('Content-type', 'application/json;chatset=utf-8');
+            res.end(JSON.stringify(resule));
+          })
+        })
         break;
       case "PUT":
         if (id) {

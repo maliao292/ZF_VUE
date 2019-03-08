@@ -6,7 +6,7 @@
         <img :src="book.bookCover" alt="">
         <div>
           <h4 v-text="book.bookName"></h4>
-          <p>{{book.bookInfo}}+{{book.bookId}}</p>
+          <p>{{book.bookInfo}}</p>
           <b>{{book.bookPrice}}</b>
           <button @click.stop="remove(book.bookId)" class="btn btn-danger fr">删除</button>
         </div>
