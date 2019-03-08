@@ -27,6 +27,7 @@ export let getAll = () => {
   return axios.all([getSlider(),getHotBook()])
 };
 // 获取下拉刷新
+
 /*
 export let getAll = () => {
   return axios.all([getSlider(),getHotBook()])
