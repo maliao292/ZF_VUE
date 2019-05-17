@@ -9,3 +9,5 @@ npm install less less-loder axios vuex bootstrap
 
 - 矢量图标库
 > https://www.iconfont.cn/  
+
+新编辑器测试

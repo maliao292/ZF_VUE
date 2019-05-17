@@ -81,6 +81,7 @@
         this.getBook(this.bid);
       }
     },
+
     components: {
       Mheader
     }
