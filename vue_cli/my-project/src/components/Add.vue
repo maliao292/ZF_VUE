@@ -7,6 +7,7 @@
           <div class="<!--col-xs-offset-3 -->col-xs-12 col-md-3">
             <a href="#" class="thumbnail">
               <img :src="book.bookCover">
+
             </a>
           </div>
         </div>
