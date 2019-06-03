@@ -17,6 +17,7 @@ function read(cb) {
 // read(function (data) {
 // });
 http.createServer((req, res) => {
+  let pageSize = 5;
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
   res.setHeader('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
@@ -25,14 +26,24 @@ http.createServer((req, res) => {
     return res.end();
   }
   let {pathname, query} = url.parse(req.url, true);
-  if(pathname === '/page'){
-    let offset = parseInt(query.offset) || 0 ;
+  if (pathname === '/page') {
+    let offset = parseInt(query.offset) || 0;
     console.log(offset);
+    read(function (books) {
+      let result = books.reverse().slice(offset, offset + pageSize);
+      let hasMore = true;
+      if (books.length <= offset+pageSize) {
+        hasMore = false;
+      }
+      setTimeout(()=>{
+        res.setHeader('Content-type','application/json;chatset=utf-8');
+        res.end(JSON.stringify({hasMore:hasMore,books:result}))
+      },1000)
 
+    })
     return;
   }
   if (pathname === '/sliders') {
-
     res.setHeader('Content-type', 'application/json;chatset=utf-8');
     res.end(JSON.stringify(sliders));
   }
@@ -62,13 +73,13 @@ http.createServer((req, res) => {
         break;
       case "POST":
         let str = '';
-        req.on('data',(chunk)=>{
+        req.on('data', (chunk) => {
           str += chunk;
         })
-        req.on('end',()=>{
+        req.on('end', () => {
           let book = JSON.parse(str);
           read(function (books) {
-            book.bookId = books.length?books[books.length-1].bookId+1:"1";
+            book.bookId = books.length ? books[books.length - 1].bookId + 1 : "1";
             books.push(book);
             fs.writeFileSync('./book.json', JSON.stringify(books), "utf-8");
             var resule = {
@@ -83,14 +94,14 @@ http.createServer((req, res) => {
       case "PUT":
         if (id) {
           let str = '';
-          req.on('data',(chunk)=>{
+          req.on('data', (chunk) => {
             str += chunk;
           });
-          req.on('end',()=>{
+          req.on('end', () => {
             let book = JSON.parse(str);
             read(function (books) {
-              books = books.map(item=>{
-                if(item.bookId == id){
+              books = books.map(item => {
+                if (item.bookId == id) {
                   return book;
                 }
                 return item

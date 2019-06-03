@@ -164,7 +164,7 @@ npm install html-webpack-plugin --save-dev
 > 两者版本 需要一致！！！  
 
  # 自动打开浏览器 插件
- ```
+```
 npm i open-browser-webpack-plugin --save
 ```
  - var OpenBrowserPlugin = require('open-browser-webpack-plugin')
@@ -174,9 +174,41 @@ npm i open-browser-webpack-plugin --save
  ## 路由元信息
 - {path: '/home', component: Home, meta: -{keepAlive: true}},
   -   // 取值 this.$route.meta.keepAlive
+# 路由传参
+- {path: '/home/:id?', component: Home},
+```
+"上面 ？ 代表 可有可无"
+```
+ - 路由取值
+ this.$route.params
  
+ # 路由钩子函数
  
+ var router =  new Router({
+    linkActiveClass:"...",
+    mode:"history", // hash
+    routes:[.....]
+ } );
+ router.afterEach((to,from,next)=>{
+    ....
+ })
+  也可以用在 path 同级下
+  
+  也可以写在 某个组件下（data(){} 同级下）
+- 自定义当前路由Class linkActiveClass
+
+# 自定义插件
+## 方式一：
+###  Vue.prototype.$custorm = "自定义插件"
+ ## 方式二：
+ ```
+let obj = {
+    install: function(Vue,option){
+        console.log(option)
+    }
+ }
  
- 
+ Vue.use(obj,{a:"传参"})
+``` 
  
  

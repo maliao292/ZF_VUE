@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content" ref="scroll" @scroll="loadMore">
     <Mheader :isshow="false">列表</Mheader>
     <ul class="hotbook">
       <router-link tag="li" v-for="(book,ind) in books" :key="ind" :to="{name:'detail',query:{bid:book.bookId}}">
@@ -12,24 +12,36 @@
         </div>
       </router-link>
     </ul>
+    <button @click="getmore">{{buttontext}}</button>
   </div>
 </template>
 
 <script>
   import Mheader from '../base/Mheader';
-  import {getBooks, removeBook} from "../api";
+  import {getBooks, removeBook, pagiation} from "../api";
 
   export default {
     name: "home",
     created() {
       this.getData();
+
     },
     data() {
       return {
-        books: []
+        books: [],
+        offset: 0,
+        isLoading:true,
+        hasMore: true
       }
     },
     methods: {
+      loadMore(){
+        let {scrollTop,clientHeight,scrollHeight} = this.$refs.scroll;
+        console.log(scrollTop,clientHeight,scrollHeight)
+      },
+      getmore(){
+        this.getData()
+      },
       async remove(id) {
         await removeBook(id);
         this.books = this.books.filter(function (item) {
@@ -37,7 +49,21 @@
         })
       },
       async getData() {
-        this.books = await getBooks();
+        if (this.hasMore&&this.isLoading) {
+          this.isLoading = false;
+          let {hasMore, books} = await pagiation(this.offset);
+          this.hasMore = hasMore;
+          this.isLoading = true;
+          this.books = [...this.books,...books];
+          // this.books.push(books);
+          this.offset = this.books.length;
+        }
+
+      }
+    },
+    computed:{
+      buttontext(){
+        return this.hasMore?'加载更多..':'没有更多了！'
       }
     },
     components: {

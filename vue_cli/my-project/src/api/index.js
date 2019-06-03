@@ -28,8 +28,6 @@ export let getAll = () => {
 };
 // 获取下拉刷新
 
-/*
-export let getAll = () => {
-  return axios.all([getSlider(),getHotBook()])
+export let pagiation = (offset) => {
+  return axios.get(`/page?offset=${offset}`);
 };
-*/

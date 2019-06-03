@@ -28,7 +28,7 @@
   * {
     margin: 0;
     padding: 0;
-    box-sizing: ;
+    box-sizing:border-box ;
   }
 
   ul, li {

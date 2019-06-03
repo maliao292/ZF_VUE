@@ -5,10 +5,7 @@ import Add from '../components/Add'
 import Collect from '../components/Collect'
 import List from '../components/List'
 import Detail from '../components/Detail'
-
-
 Vue.use(Router);
-
 export default new Router({
   routes: [
     {path: '/home', component: Home, meta: {keepAlive: true}},
