@@ -45,7 +45,6 @@
 <script>
   import Mheader from '../base/Mheader';
   import {findOneBook, updataBook} from "../api";
-
   export default {
     name: "home",
     data() {
@@ -81,13 +80,11 @@
         this.getBook(this.bid);
       }
     },
-
     components: {
       Mheader
     }
   }
 </script>
-
 <style scoped>
   .cover {
     position: fixed;
