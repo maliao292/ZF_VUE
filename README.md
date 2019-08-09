@@ -189,6 +189,9 @@ npm i open-browser-webpack-plugin --save
     mode:"history", // hash
     routes:[.....]
  } );
+ router.beforeEach((to,from,next)=>{
+    .... // 权限设置
+ })
  router.afterEach((to,from,next)=>{
     ....
  })
@@ -196,6 +199,11 @@ npm i open-browser-webpack-plugin --save
   
   也可以写在 某个组件下（data(){} 同级下）
 - 自定义当前路由Class linkActiveClass
+
+## router-link
+<router-link :to="{name:'login',query:{id:1}}"></router-link>
+<router-link :to="{path:'login/:par',params:{par:'abc'}}"></router-link> // 实例中 两个 ‘par’对应存在
+
 
 # 自定义插件
 ## 方式一：
@@ -210,5 +218,10 @@ let obj = {
  
  Vue.use(obj,{a:"传参"})
 ``` 
+ 
+ ## 确保元素的唯一
+ 元素中生成添加属性  为随机数  详见：vue_cli/components/Collect1
+ 
+
  
  

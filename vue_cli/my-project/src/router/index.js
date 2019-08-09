@@ -9,7 +9,7 @@ import Collect from '../components/Collect'
 import List from '../components/List'
 import Detail from '../components/Detail'
 Vue.use(Router);
-export default new Router({
+var router =  new Router({
   linkActiveClass:'active',
   routes: [
     {path: '/home', component: Home, meta: {keepAlive: true}},
@@ -24,3 +24,15 @@ export default new Router({
     {path: '*', redirect: '/home'}
   ]
 })
+
+
+// 多次追加 路由
+
+router.addRoutes([
+  {path: '/collect', component: Collect,children:[
+      {path: '/',component: Collect1},
+      {path: 'collect2',component: Collect2},
+    ]}
+])
+
+export default router;
