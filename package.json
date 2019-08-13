@@ -4,7 +4,7 @@
   "description": "vm.$set(vm.a,\"school\",1) // 添加未定义属性",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "bootstrap": "^3.3.7",
     "save-dev": "^2.0.0",
     "vue": "^2.6.7",
@@ -27,7 +27,7 @@
     "vue-loader": "^13.7.3",
     "vue-template-compiler": "^2.6.7",
     "webpack": "^3.12.0",
-    "webpack-dev-server": "^2.11.3"
+    "webpack-dev-server": "^2.11.5"
   },
   "scripts": {
     "build": "webpack",

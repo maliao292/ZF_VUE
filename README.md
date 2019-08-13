@@ -221,7 +221,47 @@ let obj = {
  
  ## 确保元素的唯一
  元素中生成添加属性  为随机数  详见：vue_cli/components/Collect1
- 
 
- 
- 
+ # axios 
+ -- 获取上传进度
+```
+var form = new FormData()
+form.append('file', vm.$refs.upload.files[0])
+form.append('id', id)
+form.append('type', type)
+var config = {
+ onUploadProgress: progressEvent => {
+  var complete = (progressEvent.loaded / progressEvent.total * 100 | 0) + '%'
+  this.progress = complete
+ }
+}
+axios.post(`api/uploadFile`,
+ form, config).then((res) => {
+ if (res.data.status === 'success') {
+  console.log('上传成功')
+ }
+})
+```
+
+## 取消请求
+const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
+
+ axios.get('/user/12345', {
+  cancelToken: source.token
+}).catch(function (thrown) {
+  if (axios.isCancel(thrown)) {
+    console.log('Request canceled', thrown.message);   
+  } else {
+    // handle error
+  }
+});
+
+axios.post('/user/12345', {
+  name: 'new name'
+}, {
+  cancelToken: source.token
+})
+
+### 续传和断点续传取消  详见视频 【重点】：开课吧Web全栈架构师正式课（Vue.JS及实战项目）\vue高级 —— 夯实知识（2）  第8课
+  

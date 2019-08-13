@@ -34,5 +34,5 @@ router.addRoutes([
       {path: 'collect2',component: Collect2},
     ]}
 ])
-
+ 
 export default router;
