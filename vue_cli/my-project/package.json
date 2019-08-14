@@ -5,7 +5,7 @@
   "author": "mario <maming292@163.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --host 0.0.0.0 --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --ho st 0.0.0.0 --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js"
   },
