@@ -15,15 +15,16 @@ module.exports = {
         loaders:[
             {test:/\.css$/,loader:'style-loader!css-loader'},
             {test:/\.(png|jpg|gif)$/,loader:'url-loader?limit=4096'}  ,
-            {test:/\.less$/,loader:'style-loader!css-loader!less-loader'}  ,
+            {test:/\.less$/,loader:'style-loader!css-loader!less-loader'},
             //  处理es6\7\8
             {test:/\.js$/,loader:'babel-loader',
             exclude:/node_modules/,  // 排除node_modules 目录
             options:{
                 presets:['env'], // 处理关键字
                 plugins:['transform-runtime'], // 处理函数
-            }}
-
+            }},
+            {test:/\.vue/,loader:'vue-loader'}
+ 
         ]
     },
     plugins:[
