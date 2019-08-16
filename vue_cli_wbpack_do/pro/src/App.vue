@@ -1,23 +1,40 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <mt-header fixed title="信息管理系统"></mt-header>
+    {{msg}}
+    <router-view />
+    <mt-tabbar v-model="selected">
+      <mt-tab-item id="外卖">
+        <img slot="icon" src='./assets/img/j.png'/>
+        外卖
+      </mt-tab-item>
+      <mt-tab-item id="订单">
+        <img slot="icon" src='./assets/img/c.png'/>
+        订单
+      </mt-tab-item>
+      <mt-tab-item id="发现">
+        <img slot="icon" src='./assets/img/h.png'/>
+        发现
+      </mt-tab-item>
+      <mt-tab-item id="我的">
+        <img slot="icon" src='./assets/img/s.png'/>
+        我的
+      </mt-tab-item>
+    </mt-tabbar>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      msg: '我是App',
+      selected: 'selected'
+    }
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
