@@ -1,0 +1,142 @@
+* {
+	box-sizing: border-box;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td,
+form,
+pre {
+	margin: 0;
+	padding: 0;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+a {
+	text-decoration: none;
+}
+
+a:active,
+a:hover {
+	outline: 0
+}
+
+img {
+	display: inline-block;
+	border: none;
+	vertical-align: middle;
+}
+
+li {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+h1,
+h2,
+h3 {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+h4,
+h5,
+h6 {
+	font-size: 100%;
+	font-weight: 400;
+}
+
+button,
+input,
+select,
+textarea {
+	font-size: 100%;
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	outline: 0;
+}
+
+pre {
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
+/* 寮圭獥鏍峰紡 */
+.showdetail {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.3);
+	text-align: center;
+	z-index: 1;
+	display:none;
+}
+
+.middle {
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.listers {
+    display: inline-block;
+    vertical-align: middle;
+    width: 400px;
+    background: #fff;
+    border-radius: 10px;
+    /*height: 265px;*/
+    position: relative;
+    padding: 20px 30px;
+    text-align: left;
+}
+
+[class$='_c']{
+	cursor: pointer;
+}
+
+.fr{
+	float: right;
+}
+
+.fl{
+	float: left;
+}
+.b{
+	/*border: 1px solid #FFFFFF;*/
+}

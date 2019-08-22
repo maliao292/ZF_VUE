@@ -1,12 +1,11 @@
 <template>
-  <div>new</div>
+  <div>我是发现</div>
 </template>
-
 <script>
 export default {
-    data () {
+  data () {
     return {
-      msg: '',
+      msg: ''
     }
   }
 }

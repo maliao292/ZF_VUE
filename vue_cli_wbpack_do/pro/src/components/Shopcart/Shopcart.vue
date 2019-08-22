@@ -1,12 +1,12 @@
 <template>
-  <div>new</div>
+  <div>我是购物车</div>
 </template>
 
 <script>
 export default {
-    data () {
+  data () {
     return {
-      msg: '',
+      msg: ''
     }
   }
 }
