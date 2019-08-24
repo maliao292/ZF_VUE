@@ -1,33 +1,26 @@
 <template>
-    <div class="grid">
       <li>
         <slot></slot>
-        
-    </div>
+      </li>
 </template>
 
 <script>
 export default {
-   name:'my-ul',
+  name: 'my-li',
   data () {
     return {
-      msg: ''
+      msg: '18626285666'
     }
   }
 }
 </script>
 <style scoped>
-  .grid ul{ 
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  .grid ul li {
+  li {
       width: 33%;
       text-align: center;
       padding-bottom: 15px
   }
-  .grid ul li div{
+  li div{
     width: 50px;
     height: 50px;
     line-height: 50px;
@@ -36,7 +29,7 @@ export default {
     border-radius: 25px;
     color: #fff;
   }
-  .grid ul li span{
+  li span{
     font-size: 14px;
   }
 </style>

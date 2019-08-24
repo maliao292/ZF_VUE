@@ -4,19 +4,19 @@
     <router-view />
     <mt-tabbar v-model="selected">
       <mt-tab-item id="home">
-        <img slot="icon" src="./assets/img/j.png" />
+        <img @click="changeHash" alt='home' slot="icon" src="./assets/img/j.png" />
         首页
       </mt-tab-item>
       <mt-tab-item id="member">
-        <img slot="icon" src="./assets/img/c.png" />
+        <img @click="changeHash" alt='member' slot="icon" src="./assets/img/c.png" />
         会员
       </mt-tab-item>
       <mt-tab-item id="shopcart">
-        <img slot="icon" src="./assets/img/h.png" />
+        <img @click="changeHash" alt='shopcart' slot="icon" src="./assets/img/h.png" />
         购物车
       </mt-tab-item>
       <mt-tab-item id="search">
-        <img slot="icon" src="./assets/img/s.png" />
+        <img @click="changeHash" alt='search' slot="icon" src="./assets/img/s.png" />
         发现
       </mt-tab-item>
     </mt-tabbar>
@@ -29,13 +29,21 @@ export default {
   data () {
     return {
       msg: '我是App',
-      selected: 'home'
+      selected: 'home',
+    }
+  },
+  created(){
+    
+  },
+  methods: {
+    changeHash (e) {
+      console.log(e.target.alt)
+     this.$router.push({name: e.target.alt})
+       
     }
   },
   watch: {
-    selected (newval, oldval) {
-      this.$router.push({name: newval})
-    }
+
   }
 }
 </script>
@@ -43,5 +51,10 @@ export default {
 <style>
 #app{
   padding-top: 40px
+}
+
+.mint-tabbar{
+  position: fixed;
+
 }
 </style>
