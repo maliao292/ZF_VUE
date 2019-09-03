@@ -3,9 +3,9 @@
     <nav-bar>商品列表</nav-bar>
     <ul>
         <li v-for='val in newList' :key='val.id'>
-          <img :src="val.img_url" alt="">
-          <span>{{val.title}}</span>
-          <p>{{val.add_time | converTime()}}</p>
+          <vue-preview :slides="val" @close="handleClose"></vue-preview>
+          <span>{{val[0].title}}</span>
+          <p>{{val[0].add_time | converTime()}}</p>
         </li>
       </ul>  
   </div>

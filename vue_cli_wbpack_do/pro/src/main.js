@@ -14,6 +14,10 @@ Vue.component(MyUl.name, MyUl)
 Vue.component(MyLi.name, MyLi)
 Vue.component(NavBar.name, NavBar)
 
+import VuePreview from 'vue-preview'
+// defalut install
+Vue.use(VuePreview)
+
 // 定义 moment 全局过滤器
 import Moment from 'moment'
 Vue.filter('converTime',function(data,formatstr ){
