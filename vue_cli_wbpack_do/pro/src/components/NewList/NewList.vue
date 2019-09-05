@@ -1,9 +1,12 @@
 <template>
-  <div>
+  <div style="width:100%;overflow:hidden">
     <nav-bar>商品列表</nav-bar>
+    <div>
+     
+    </div>
     <ul>
         <li v-for='val in newList' :key='val.id'>
-          <vue-preview :slides="val" @close="handleClose"></vue-preview>
+          <vue-preview :slides="val"></vue-preview>
           <span>{{val[0].title}}</span>
           <p>{{val[0].add_time | converTime()}}</p>
         </li>
@@ -11,6 +14,7 @@
   </div>
 </template>
 <script>
+import EventBus from '../../EventBus.js'
 export default {
     data () {
     return {
@@ -20,7 +24,12 @@ export default {
   },
   created(){
     this.$axios.get('../../../static/dataJson/newList.json').then( res => this.newList = res.data)
-  }
+  },
+  methods: {
+    setBall(){
+      EventBus.$emit('addShopcart',this.msg)
+    }
+  },
 }
 
 </script>
