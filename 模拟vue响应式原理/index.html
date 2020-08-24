@@ -14,18 +14,25 @@
         <h2>v-text</h2>
         <div v-text="msg"></div>
         <h1>v-model</h1>
-        <input type="text " v-model='msg'>
-        <input type="text" v-model='count'>
+        <input type="text " v-model='msg'><input type="text" v-model='count'>
     </div>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-    <script src="./myVue.js"></script>
+    <script src="./js/compile.js"></script>
+    <script src="./js/observer.js"></script>
+    <script src="./js/myVue.js"></script>
 
     <script>
         let vm = new Vue({
-            el:"#app",
-            data:{
-                msg:'Hello Vue',
-                count:20
+            el: "#app",
+            data: {
+                msg: 'Hello Vue',
+                count: 20,
+                person: {
+                    name: 'zs',
+                    age: {
+                        num: 15
+                    }
+                }
             }
         })
     </script>
