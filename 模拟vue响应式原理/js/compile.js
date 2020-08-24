@@ -42,7 +42,7 @@ class Compile { // 编译
     }
     // 处理 v- 指令
     textUpdater(node, value) {
-        node.textContent = value
+        node.textContent = value+5
 
     }
     // v-moldel

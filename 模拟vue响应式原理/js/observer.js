@@ -13,11 +13,14 @@ class observer {
         })
     }
     defineReactive(obj, key, val) { // 调用 Object.defineProperty,把属性转换成 getter 和 setter
+        let dep = new Dep()
         this.walk(val)
         Object.defineProperty(obj, key, {
             enumerable: true,
             configurable: true,
             get() {
+                // 收集依赖
+                Dep.target&&dep.addSub(Dep.target)
                 return val
             },
             set(newVal) {
@@ -26,6 +29,7 @@ class observer {
                 }
                 val = newVal
                 self.walk(newVal)
+                dep.notify()
             }
         })
     }
