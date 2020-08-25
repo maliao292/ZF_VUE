@@ -29,7 +29,7 @@ class Compile { // 编译
                 if (this.isDirective(arrtName)) {
                     arrtName = arrtName.substr(2)
                     let key = attr.value
-                    this.updeter(node,key,arrtName)
+                    this.updeter(node, key, arrtName)
                 }
             })
 
@@ -38,25 +38,27 @@ class Compile { // 编译
     }
     updeter(node, key, attrName) {
         let updateFn = this[attrName + 'Updater']
-        updateFn&&updateFn(node,this.vm[key])
+        updateFn && updateFn(node, this.vm[key])
     }
     // 处理 v- 指令
     textUpdater(node, value) {
-        node.textContent = value+5
+        node.textContent = value + 5
 
     }
     // v-moldel
     modelUpdater(node, value) {
-        node.textContent = value
+        node.value = value
     }
     // 编译文本节点，处理差值表达式
     compileText(node) {
+        let reg = /\{\{(.+?)\}\}/
         let value = node.textContent
-        let c = /\{\{(.+?)\}\}/.test(value)
-
-        if (c) {
+        if (reg.test(value)) {
             let key = RegExp.$1.trim()
-            node.textContent = value.replace(/\{\{(.+?)\}\}/, this.vm[key])
+            node.textContent = value.replace(reg, this.vm[key])
+            new Watcher(this.vm, key, (newVal) => {
+                node.textContent = newVal
+            })
         }
     }
     // 判断元素属性是否是指令
