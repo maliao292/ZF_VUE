@@ -6,39 +6,32 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var Watcher =
+var Dep =
 /*#__PURE__*/
 function () {
-  function Watcher(vm, key, cb) {
-    _classCallCheck(this, Watcher);
+  // 发布
+  function Dep() {
+    _classCallCheck(this, Dep);
 
-    console.log(vm);
-    this.vm = vm; // data 属性名称
-
-    this.key = key; // 回调函数负责更新视图
-
-    this.cb = cb; // 把wacher 对象记录到Dep类的静态属性target
-
-    Dep.target = this; // 触发get方法，在get方法中调用 addsub
-
-    this.oldValue = vm[key];
-    Dep.target = null;
-  } // 当数据发生变化的时候更新视图
+    // 存储所所有的观察者
+    this.subs = [];
+  } // 添加观察者
 
 
-  _createClass(Watcher, [{
-    key: "update",
-    value: function update() {
-      var newValue = this.vm[this.key];
+  _createClass(Dep, [{
+    key: "addSub",
+    value: function addSub(sub) {
+      if (sub && sub.update) this.subs.push(sub);
+    } // 发送通知
 
-      if (newValue === this.oldValue) {
-        return;
-      }
-
-      this.oldValue = newValue;
-      this.cb(newValue);
+  }, {
+    key: "notify",
+    value: function notify() {
+      this.subs.forEach(function (sub) {
+        sub.update();
+      });
     }
   }]);
 
-  return Watcher;
+  return Dep;
 }();

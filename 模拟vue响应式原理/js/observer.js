@@ -20,7 +20,7 @@ class observer {
             configurable: true,
             get() {
                 // 收集依赖
-                Dep.target&&dep.addSub(Dep.target)
+                Dep.target && dep.addSub(Dep.target)
                 return val
             },
             set(newVal) {

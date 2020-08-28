@@ -13,7 +13,6 @@ function () {
   function Compile(vm) {
     _classCallCheck(this, Compile);
 
-    console.log(vm);
     this.el = vm.$el;
     this.vm = vm;
     this.compile(this.el);
@@ -70,7 +69,7 @@ function () {
   }, {
     key: "textUpdater",
     value: function textUpdater(node, value) {
-      node.textContent = value + 5;
+      node.textContent = value;
     } // v-moldel
 
   }, {
@@ -82,6 +81,7 @@ function () {
   }, {
     key: "compileText",
     value: function compileText(node) {
+      console.log('运行compileText');
       var reg = /\{\{(.+?)\}\}/;
       var value = node.textContent;
 
@@ -89,6 +89,7 @@ function () {
         var key = RegExp.$1.trim();
         node.textContent = value.replace(reg, this.vm[key]);
         new Watcher(this.vm, key, function (newVal) {
+          console.log('new Watcher');
           node.textContent = newVal;
         });
       }

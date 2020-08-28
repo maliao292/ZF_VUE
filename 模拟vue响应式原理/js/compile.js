@@ -1,6 +1,5 @@
 class Compile { // 编译
     constructor(vm) {
-        console.log(vm)
         this.el = vm.$el;
         this.vm = vm
         this.compile(this.el)
@@ -42,7 +41,7 @@ class Compile { // 编译
     }
     // 处理 v- 指令
     textUpdater(node, value) {
-        node.textContent = value + 5
+        node.textContent = value
 
     }
     // v-moldel
@@ -51,12 +50,14 @@ class Compile { // 编译
     }
     // 编译文本节点，处理差值表达式
     compileText(node) {
+        console.log('运行compileText')
         let reg = /\{\{(.+?)\}\}/
         let value = node.textContent
         if (reg.test(value)) {
             let key = RegExp.$1.trim()
             node.textContent = value.replace(reg, this.vm[key])
             new Watcher(this.vm, key, (newVal) => {
+                console.log('new Watcher')
                 node.textContent = newVal
             })
         }

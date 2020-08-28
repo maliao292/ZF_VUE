@@ -11,7 +11,7 @@ class Dep{ // 发布
     // 发送通知
     notify(){
         this.subs.forEach(sub=>{
-            sub.update()
+            sub.update() 
         })
     }
 }
