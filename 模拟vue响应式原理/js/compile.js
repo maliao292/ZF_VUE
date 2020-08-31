@@ -50,14 +50,12 @@ class Compile { // 编译
     }
     // 编译文本节点，处理差值表达式
     compileText(node) {
-        console.log('运行compileText')
         let reg = /\{\{(.+?)\}\}/
         let value = node.textContent
         if (reg.test(value)) {
             let key = RegExp.$1.trim()
             node.textContent = value.replace(reg, this.vm[key])
             new Watcher(this.vm, key, (newVal) => {
-                console.log('new Watcher')
                 node.textContent = newVal
             })
         }

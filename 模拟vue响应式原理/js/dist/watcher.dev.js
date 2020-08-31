@@ -12,7 +12,6 @@ function () {
   function Watcher(vm, key, cb) {
     _classCallCheck(this, Watcher);
 
-    console.log(vm);
     this.vm = vm; // data 属性名称
 
     this.key = key; // 回调函数负责更新视图

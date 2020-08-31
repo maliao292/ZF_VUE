@@ -1,6 +1,5 @@
 class Watcher {
     constructor(vm, key, cb) {
-        console.log(vm)
         this.vm = vm
         // data 属性名称
         this.key = key

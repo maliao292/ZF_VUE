@@ -81,7 +81,6 @@ function () {
   }, {
     key: "compileText",
     value: function compileText(node) {
-      console.log('运行compileText');
       var reg = /\{\{(.+?)\}\}/;
       var value = node.textContent;
 
@@ -89,7 +88,6 @@ function () {
         var key = RegExp.$1.trim();
         node.textContent = value.replace(reg, this.vm[key]);
         new Watcher(this.vm, key, function (newVal) {
-          console.log('new Watcher');
           node.textContent = newVal;
         });
       }

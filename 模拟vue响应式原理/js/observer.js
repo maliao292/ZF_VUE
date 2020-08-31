@@ -13,6 +13,7 @@ class observer {
         })
     }
     defineReactive(obj, key, val) { // 调用 Object.defineProperty,把属性转换成 getter 和 setter
+        // 收集依赖  发送通知
         let dep = new Dep()
         this.walk(val)
         Object.defineProperty(obj, key, {
