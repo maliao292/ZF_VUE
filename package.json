@@ -4,7 +4,7 @@
   "description": "vm.$set(vm.a,\"school\",1) // 添加未定义属性",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "bootstrap": "^3.3.7",
     "vue": "^2.6.7",
     "vue-router": "^3.0.2",
